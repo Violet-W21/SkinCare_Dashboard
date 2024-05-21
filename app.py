@@ -509,7 +509,7 @@ def recommend_foods(food_data, selected_skin_issue):
     )
     fig = go.Figure(data=traces, layout=layout)
     fig.update_layout(
-        title_font_size = 16,
+        title_font_size = 15,
         xaxis=dict(tickangle=90),
         autosize=True,
         # width=363,
