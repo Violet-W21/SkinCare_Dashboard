@@ -30,7 +30,7 @@ SkinCare_df_age_CS_Top5= SkinCare_df_age_CS_sorted.head()
 # create dash object
 app = dash.Dash(external_stylesheets = [dbc.themes.MINTY])
 
-# server = app.server
+server = app.server
 
 # define Input options:
 skin_issues_list = sorted(SkinCareProduct_df['Skin_Issue'].unique())
