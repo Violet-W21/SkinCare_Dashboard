@@ -459,6 +459,7 @@ def plots_output(df_skincare_, product_type, skin_issue):
     [Input(df_storage_Food, component_property='data'),
      Input('input_skin_issue', 'value')]
 )
+
 def recommend_foods(food_data, selected_skin_issue):
     if not food_data or not selected_skin_issue:
         raise PreventUpdate
@@ -510,9 +511,9 @@ def recommend_foods(food_data, selected_skin_issue):
     fig.update_layout(
         title_font_size = 16,
         xaxis=dict(tickangle=90),
-        autosize=False,
-        width=363,
-        height=550,
+        autosize=True,
+        # width=363,
+        # height=550,
         margin=dict(
         l=1,
         r=1,
@@ -535,12 +536,17 @@ def recommend_foods(food_data, selected_skin_issue):
         )
     
     food_plot_card = dbc.Card(
-        dbc.CardBody([dcc.Graph(figure=fig)]),
-        className="mt-4", id = 'food_plot_card',
+        dbc.CardBody(
+            [dcc.Graph(
+                figure=fig, config = {'responsive': True}
+                )
+            ]),
+        className="mt-4", id = 'food_plot_card'
         )
     
     # create list_group_items
     list_group_item_food_nurient = dbc.ListGroupItem(food_nurient_card, id = 'list_group_item_food_nurient')
+
     list_group_item_food_plot = dbc.ListGroupItem(food_plot_card, id = 'list_group_item_food_plot')
     
     
